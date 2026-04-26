@@ -117,4 +117,9 @@ To replicate this project, the following hardware is required:
 - LCD shows real-time counting  
 - When time is reached:
   - Timer stops  
-  - LED turns on as indicator  
+  - LED turns on as indicator
+ 
+  - ## Diagrama del sistema
+
+![Diagrama](img/diagramaconex_prac3_pt2.jpeg)
+![Diagrama](img/diagramflujo_prac3_pt2.jpeg)
