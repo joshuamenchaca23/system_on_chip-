@@ -214,7 +214,7 @@ It highlights the importance of combining:
 
 to build responsive and efficient embedded applications.
 
-# Diagrams pt 1
+# Diagrams
 
 ## Diagrama de flujo
 ![Diagrama de flujo](diagramflujo_prac4.png)
