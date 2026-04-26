@@ -1,7 +1,10 @@
 # SoC Practice: Ascending Timer with Keypad, LCD and TPM0  
 Andre - Santi - Jared - Joshua
 
-This project implements an embedded system that allows the user to configure and execute an ascending timer using a keypad interface, displaying real-time information on an LCD and using hardware timer interrupts for precise timing.
+This project implements an embedded system divided into two main stages:
+
+- **Part 1:** User interface and output control using keypad, LCD, and RGB LED  
+- **Part 2:** Ascending timer using TPM0 interrupts with real-time LCD display  
 
 ---
 
@@ -17,22 +20,79 @@ To replicate this project, the following hardware is required:
 
 ---
 
-## System Features
+# 🔹 PART 1: Menu and Output Management
 
-- User Input via Keypad:  
-  The user can enter a time value (in seconds) using multiple digits.
+## Description
 
-- Dynamic Timer Configuration:  
-  The entered value defines the duration of the timer.
+In this stage, the system implements a simple user interface using the keypad and LCD. The user selects a color, and the corresponding LED is activated.
 
-- Interrupt-Based Timing:  
-  TPM0 is used to generate periodic interrupts, ensuring accurate time counting.
+---
 
-- Real-Time Display:  
-  The LCD shows the current timer value in the format `t = current / total`.
+## System Features (Part 1)
 
-- Visual Feedback:  
-  An LED turns on when the timer reaches the specified value.
+- Menu displayed on LCD  
+- Keypad-based selection  
+- RGB LED control  
+- Immediate visual feedback  
+
+---
+
+## Execution Flow (Part 1)
+
+### Initialization
+- Initialize keypad, LCD, and LED  
+
+---
+
+### Menu Display
+- LCD shows:
+- PRESS BUTTON
+-R:1 B:2 G:3
+
+
+---
+
+### User Input
+- System waits for key press  
+- Valid inputs:
+- `1` → Red LED  
+- `2` → Blue LED  
+- `3` → Green LED  
+
+---
+
+### LED Activation
+- LCD displays selected color  
+- Corresponding LED turns ON  
+- System waits 3 seconds  
+- LED turns OFF  
+- Returns to menu  
+
+---
+
+## System Behavior (Part 1)
+
+- System runs in a loop  
+- Only one LED is active at a time  
+- User interaction is simple and immediate  
+
+---
+
+# 🔹 PART 2: Ascending Timer with TPM0
+
+## Description
+
+This stage expands the system by allowing the user to configure a timer using the keypad. The timer runs using hardware interrupts and displays real-time progress on the LCD.
+
+---
+
+## System Features (Part 2)
+
+- User Input via Keypad (multi-digit)  
+- Dynamic Timer Configuration  
+- Interrupt-Based Timing using TPM0  
+- Real-Time LCD Display  
+- LED indicator when timer finishes  
 
 ---
 
@@ -46,9 +106,9 @@ To replicate this project, the following hardware is required:
 ### LCD Screen - Ports A and D (8-Bit Mode)
 - Data Bus: PTD0 – PTD7  
 - Control Pins:  
-  - RS: PTA2  
-  - RW: PTA4  
-  - EN: PTA5  
+- RS: PTA2  
+- RW: PTA4  
+- EN: PTA5  
 
 ### RGB LED
 - Red: PTB18  
@@ -61,7 +121,7 @@ To replicate this project, the following hardware is required:
 
 ---
 
-## Execution Flow
+## Execution Flow (Part 2)
 
 ### Initialization
 - Initialize keypad, LCD, LED, and TPM0  
@@ -72,56 +132,58 @@ To replicate this project, the following hardware is required:
 
 ### User Input
 - User enters digits using keypad  
-- Multiple digits are stored in a buffer  
-- Input ends when `*` key is pressed  
+- Values stored in buffer  
+- Input confirmed with `*`  
 
 ---
 
 ### Timer Start
-- Input value is converted to integer  
-- Timer variables are reset  
-- System enters RUNNING state  
-- LCD displays "Counting..."  
+- Convert input to integer  
+- Reset variables  
+- Start timer (running = 1)  
+- Display "Counting..."  
 
 ---
 
 ### Main Loop
 - Continuously scans keypad  
 - If running:
-  - Displays current count vs total time  
-  - Updates LCD in real time  
+- Displays current time vs total  
+- Updates LCD every cycle  
 
 ---
 
 ### Timer Interrupt (TPM0)
-- Executes periodically (~0.1 s)  
+- Executes every ~0.1 s  
 - Accumulates ticks  
 - Every 1 second:
-  - Increments contador  
+- Increments counter  
 
 ---
 
 ### Timer Completion
 - When contador >= segundos:
-  - Timer stops  
-  - LCD displays "FIN!"  
-  - LED turns ON  
+- Timer stops  
+- LCD displays "FIN!"  
+- LED turns ON  
 
 ---
 
-## System Behavior
+## System Behavior (Part 2)
 
-- System starts idle after greeting  
-- User inputs desired time using keypad  
-- Pressing `*` starts the timer  
-- LCD shows real-time counting  
-- When time is reached:
-  - Timer stops  
-  - LED turns on as indicator
+- User defines timer duration  
+- System counts in real time  
+- LCD shows progress (`t = actual / total`)  
+- LED indicates completion  
+
+---
+
+# 📊 Diagrams pt 2
 
 ## Diagrama de flujo
 ![Diagrama de flujo](diagramflujo_prac3_pt2.jpeg)
 
- ## Diagrama de conexión
+## Diagrama de conexión
 ![Diagrama de conexión](diagramaconex_prac3_pt2.jpeg)
+
 
