@@ -180,7 +180,7 @@ This stage expands the system by allowing the user to configure a timer using th
 # Diagrams pt 1
 
 ## Diagrama de flujo
-![Diagrama de flujo](diagramflujo_prac3_pt2.jpeg)
+![Diagrama de flujo](diagflujo_prac3_pt1.png)
 
 ## Diagrama de conexión
 ![Diagrama de conexión](diagramaconex_prac3_pt2.jpeg)
