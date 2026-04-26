@@ -7,7 +7,7 @@ The project is divided into **three progressive parts**, each adding more comple
 
 ---
 
-## 🧰 Materials Used
+##  Materials Used
 
 - Microcontroller: KL25Z  
 - Push Buttons (Switches)  
