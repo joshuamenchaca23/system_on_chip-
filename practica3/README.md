@@ -119,10 +119,9 @@ To replicate this project, the following hardware is required:
   - Timer stops  
   - LED turns on as indicator
 
- ## Diagrama de conexión
-![Diagrama de conexión](diagramaconex_prac3_pt2.jpeg)
-
 ## Diagrama de flujo
 ![Diagrama de flujo](diagramflujo_prac3_pt2.jpeg)
 
+ ## Diagrama de conexión
+![Diagrama de conexión](diagramaconex_prac3_pt2.jpeg)
 
