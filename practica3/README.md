@@ -177,8 +177,15 @@ This stage expands the system by allowing the user to configure a timer using th
 - LED indicates completion  
 
 ---
+# Diagrams pt 1
 
-# 📊 Diagrams pt 2
+## Diagrama de flujo
+![Diagrama de flujo](diagramflujo_prac3_pt2.jpeg)
+
+## Diagrama de conexión
+![Diagrama de conexión](diagramaconex_prac3_pt2.jpeg)
+
+# Diagrams pt 2
 
 ## Diagrama de flujo
 ![Diagrama de flujo](diagramflujo_prac3_pt2.jpeg)
