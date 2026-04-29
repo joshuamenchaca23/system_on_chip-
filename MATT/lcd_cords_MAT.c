@@ -66,14 +66,16 @@ int main(void)
 
     while (1)
     {
-        if (key == 1){
-            delayMs
-        }
-        distance = medir_distancia();
-        delayMs(500);
-
-
         char key = keypad_getkey();
+        
+        if (key == 1){
+            LCD_command(0x01);
+            LCD_data(distance = medir_distancia();)
+            delayMs(500);
+        }
+
+
+        
 
         if (key == 13) // '*'
         {
