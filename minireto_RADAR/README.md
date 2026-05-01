@@ -1,5 +1,5 @@
 # SoC Project: Mini Radar System with KL25Z  
-Joshua Menchaca - Santiago Benavent- Jared García - André Pinto 
+Joshua Menchaca - Santiago Benavent - Jared García - André Pinto  
 
 This project implements a **radar-like embedded system** using the KL25Z microcontroller, combining **motor control, ultrasonic sensing, and UART communication**.
 
@@ -7,7 +7,7 @@ The system performs an **angular sweep**, measures distances, and sends the data
 
 ---
 
-##  Materials Used
+## Materials Used
 
 - Microcontroller: KL25Z  
 - Ultrasonic Sensor (HC-SR04)  
@@ -74,13 +74,18 @@ This part handles **data transmission from the KL25Z to a computer** using UART.
 - UART operates in **TX mode only**  
 - Baud rate: **57600**  
 - Data format:
-angle,distance
 
-Example:
+```
+angle,distance
+```
+
+### Example
+
+```
 45,120
 90,85
 135,200
-
+```
 
 ---
 
@@ -99,8 +104,6 @@ Example:
 - Enable UART0 clock  
 - Configure PTA2 as TX  
 - Set baud rate  
-
----
 
 ### Data Transmission
 - Convert values to string  
@@ -136,104 +139,155 @@ This part controls the **angular movement** using a stepper motor connected to P
 
 ## Execution Flow
 
-### Motor InitializationPART 3: Ultrasonic Sensor Measurement
-Description
-
-This part measures the distance to objects using an ultrasonic sensor.
-
-System Behavior
-Send trigger pulse (10 µs)
-Wait for echo signal
-Measure duration of echo
-Convert time to distance
-Key Concepts
-Pulse generation
-Signal timing
-Distance calculation
-Timeout handling
-Execution Flow
-Measurement Steps
-Set TRIG HIGH for 10 µs
-Wait for ECHO to go HIGH
-Measure time while ECHO is HIGH
-Distance Calculation
-distance = (time * 0.0343) / 2;
-🔹 PART 4: System Integration
-Description
-
-All subsystems are combined to create a functional radar system.
-
-System Features
-Continuous angular scanning
-Periodic distance measurement
-Real-time UART data output
-Efficient balance between speed and measurement
-System Behavior
-The motor runs continuously
-Distance is not measured at every step to avoid delays
-Measurement occurs every 4 steps
-Key Concepts
-System optimization
-Task scheduling
-Embedded system integration
-Execution Flow
-Initialization
-Initialize UART
-Initialize ultrasonic sensor
-Initialize motor
-Main Loop
-Step motor
-Every 4 steps:
-Measure distance
-Send data
-Overall System Behavior
-Component	Function
-Stepper Motor	Controls angular sweep
-Ultrasonic Sensor	Measures distance
-UART	Sends data to PC
-KL25Z	Central control
-📊 Visualization
-
-The transmitted data can be visualized using:
-
-Python (recommended)
-MATLAB
-Other plotting tools
-
-Goal:
-
-Represent the radar in polar or Cartesian coordinates
-Final Insight
-
-This project demonstrates how an embedded system can integrate:
-
-Motor control for movement
-Sensors for data acquisition
-Communication for visualization
-
-It highlights the importance of balancing:
-
-Timing
-Processing
-Hardware interaction
-
-to build a real-time embedded application similar to a radar system.
+### Motor Initialization
 - Configure PTD0–PTD3 as outputs  
-
----
 
 ### Step Sequence
 - Activate coils in order:
-0x01 → 0x02 → 0x04 → 0x08
 
+```
+0x01 → 0x02 → 0x04 → 0x08
+```
+
+### Angle Calculation
+
+```c
+angle = (steps * 180) / 1024;
+```
 
 ---
 
-### Angle Calculation
-- Based on total steps:
+# 🔹 PART 3: Ultrasonic Sensor Measurement
 
-angle = (steps * 180) / 1024;
+## Description
 
+This part measures the **distance to objects** using an ultrasonic sensor.
+
+---
+
+## System Behavior
+
+- Send trigger pulse (10 µs)  
+- Wait for echo signal  
+- Measure duration of echo  
+- Convert time to distance  
+
+---
+
+## Key Concepts
+
+- Pulse generation  
+- Signal timing  
+- Distance calculation  
+- Timeout handling  
+
+---
+
+## Execution Flow
+
+### Measurement Steps
+- Set TRIG HIGH for 10 µs  
+- Wait for ECHO to go HIGH  
+- Measure time while ECHO is HIGH  
+
+### Distance Calculation
+
+```c
+distance = (time * 0.0343) / 2;
+```
+
+---
+
+# 🔹 PART 4: System Integration
+
+## Description
+
+All subsystems are combined to create a **functional radar system**.
+
+---
+
+## System Features
+
+- Continuous angular scanning  
+- Periodic distance measurement  
+- Real-time UART data output  
+- Efficient balance between speed and measurement  
+
+---
+
+## System Behavior
+
+- The motor runs continuously  
+- Distance is not measured at every step to avoid delays  
+- Measurement occurs every 4 steps  
+
+---
+
+## Key Concepts
+
+- System optimization  
+- Task scheduling  
+- Embedded system integration  
+
+---
+
+## Execution Flow
+
+### Initialization
+- Initialize UART  
+- Initialize ultrasonic sensor  
+- Initialize motor  
+
+### Main Loop
+- Step motor  
+- Every 4 steps:
+  - Measure distance  
+  - Send data  
+
+---
+
+## Overall System Behavior
+
+| Component | Function |
+|----------|----------|
+| Stepper Motor | Controls angular sweep |
+| Ultrasonic Sensor | Measures distance |
+| UART | Sends data to PC |
+| KL25Z | Central control |
+
+---
+
+## 📊 Visualization
+
+The transmitted data can be visualized using:
+
+- Python (recommended)  
+- MATLAB  
+- Other plotting tools  
+
+### Goal
+Represent the radar in **polar or Cartesian coordinates**
+
+---
+
+## Final Insight
+
+This project demonstrates how an embedded system can integrate:
+
+- Motor control for movement  
+- Sensors for data acquisition  
+- Communication for visualization  
+
+It highlights the importance of balancing:
+
+- Timing  
+- Processing  
+- Hardware interaction  
+
+to build a **real-time embedded application** similar to a radar system.
+
+---
 
 ## Diagrama de flujo
+
 ![Diagrama de flujo](diagrama_kl25.png)
