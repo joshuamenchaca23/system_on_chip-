@@ -1,5 +1,5 @@
 # SoC Project: Mini Radar System with KL25Z  
-Joshua Menchaca  
+Joshua Menchaca - Santiago Benavent- Jared García - André Pinto 
 
 This project implements a **radar-like embedded system** using the KL25Z microcontroller, combining **motor control, ultrasonic sensing, and UART communication**.
 
