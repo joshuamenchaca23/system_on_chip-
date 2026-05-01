@@ -236,4 +236,4 @@ angle = (steps * 180) / 1024;
 
 
 ## Diagrama de flujo
-![Diagrama de flujo](diagrama_kl25)
+![Diagrama de flujo](diagrama_kl25.png)
