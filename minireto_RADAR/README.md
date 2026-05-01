@@ -257,7 +257,7 @@ All subsystems are combined to create a **functional radar system**.
 
 ---
 
-## 📊 Visualization
+##  Visualization
 
 The transmitted data can be visualized using:
 
@@ -308,7 +308,7 @@ The following table shows the **hardware connections** between the KL25Z microco
 
 ---
 
-## 🌀 Stepper Motor (via L293D Driver → KL25Z)
+##  Stepper Motor (via L293D Driver → KL25Z)
 
 | L293D Input | KL25Z Pin | Function |
 |------------|----------|---------|
@@ -336,7 +336,7 @@ The following table shows the **hardware connections** between the KL25Z microco
 
 ---
 
-## 🔌 System Overview (Simplified)
+##  System Overview (Simplified)
 
 ```
 KL25Z
