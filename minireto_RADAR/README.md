@@ -231,6 +231,9 @@ to build a real-time embedded application similar to a radar system.
 
 ### Angle Calculation
 - Based on total steps:
-```c
+
 angle = (steps * 180) / 1024;
 
+
+## Diagrama de flujo
+![Diagrama de flujo](diagrama_kl25)
