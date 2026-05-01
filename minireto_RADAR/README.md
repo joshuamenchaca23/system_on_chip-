@@ -287,6 +287,84 @@ It highlights the importance of balancing:
 to build a **real-time embedded application** similar to a radar system.
 
 ---
+---
+
+# 🔹 CONNECTION DIAGRAM
+
+## Description
+
+The following table shows the **hardware connections** between the KL25Z microcontroller and all components used in the radar system.
+
+---
+
+## 📡 Ultrasonic Sensor (HC-SR04 → KL25Z)
+
+| Sensor Pin | KL25Z Pin | Description |
+|-----------|----------|------------|
+| VCC | 5V | Power supply |
+| GND | GND | Ground |
+| TRIG | PTB0 | Trigger signal (output) |
+| ECHO | PTB1 | Echo signal (input) |
+
+---
+
+## 🌀 Stepper Motor (via L293D Driver → KL25Z)
+
+| L293D Input | KL25Z Pin | Function |
+|------------|----------|---------|
+| IN1 | PTD0 | Coil A |
+| IN2 | PTD1 | Coil B |
+| IN3 | PTD2 | Coil C |
+| IN4 | PTD3 | Coil D |
+
+### L293D Power Connections
+
+| Pin | Connection |
+|-----|-----------|
+| VCC1 | 5V |
+| VCC2 | External motor supply |
+| GND | GND |
+
+---
+
+## 📤 UART Communication (KL25Z → PC)
+
+| Signal | KL25Z Pin | Description |
+|--------|----------|------------|
+| TX | PTA2 | Serial transmission |
+| GND | GND | Common ground |
+
+---
+
+## 🔌 System Overview (Simplified)
+
+```
+KL25Z
+│
+├── Ultrasonic Sensor (HC-SR04)
+│   ├── TRIG → PTB0
+│   └── ECHO → PTB1
+│
+├── L293D Driver
+│   ├── IN1 → PTD0
+│   ├── IN2 → PTD1
+│   ├── IN3 → PTD2
+│   └── IN4 → PTD3
+│
+└── UART
+    └── TX → PTA2 → PC
+```
+
+---
+
+##  Notes
+
+- Make sure all components share a **common ground**
+- The ultrasonic sensor may require **5V logic level considerations**
+- The motor should use an **external power supply via L293D**
+- Avoid powering the motor directly from the KL25Z
+
+---
 
 ## Diagrama de flujo
 
