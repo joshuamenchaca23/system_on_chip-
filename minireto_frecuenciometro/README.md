@@ -62,25 +62,6 @@ After:
 
 the total pulse count is interpreted directly as the frequency in Hertz.
 
----
-
-# LCD Connections (4-bit Mode)
-
-| LCD Pin | KL25Z Pin | Function |
-|---|---|---|
-| RS | PTA2 | Register Select |
-| RW | PTA4 | Read/Write |
-| EN | PTA5 | Enable |
-| D4 | PTD0 | Data bit |
-| D5 | PTD1 | Data bit |
-| D6 | PTD2 | Data bit |
-| D7 | PTD3 | Data bit |
-| VSS | GND | Ground |
-| VDD | 3.3V | Power |
-| V0 | Potentiometer | Contrast |
-
----
-
 # Signal Input
 
 | Signal | KL25Z Pin |
