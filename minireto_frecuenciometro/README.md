@@ -263,7 +263,7 @@ to achieve stable and accurate frequency measurements.
 # Diagrams
 
 ## Flow Diagram
-![Flow Diagram](diagrama_flujo_frecuenciometro.png)
+![Flow Diagram](diagflujo_frecuenciometro.png)
 
 ## Connection Diagram
-![Connection Diagram](diagrama_conexion_frecuenciometro.png)
+![Connection Diagram](diagconex_frecuenciometro.png)
